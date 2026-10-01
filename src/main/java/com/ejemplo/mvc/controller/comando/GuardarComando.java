@@ -12,7 +12,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class GuardarComando implements Comando {
-    private static final String CAMPO_FECHA = "fechaLimite";
+    private static final String CAMPO_TITULO    = "titulo";
+    private static final String CAMPO_CATEGORIA = "categoria";
+    private static final String CAMPO_PRIORIDAD = "prioridad";
+    private static final String CAMPO_FECHA     = "fechaLimite";
 
     private final TareaService service;
 
@@ -21,9 +24,9 @@ public class GuardarComando implements Comando {
     @Override
     public String ejecutar(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
-        String titulo    = req.getParameter("titulo");
-        String categoria = req.getParameter("categoria");
-        String prioridad = req.getParameter("prioridad");
+        String titulo    = req.getParameter(CAMPO_TITULO);
+        String categoria = req.getParameter(CAMPO_CATEGORIA);
+        String prioridad = req.getParameter(CAMPO_PRIORIDAD);
         String fechaStr  = req.getParameter(CAMPO_FECHA);
 
         int maxLongitud = (Integer)
@@ -31,19 +34,19 @@ public class GuardarComando implements Comando {
         Map<String, String> errores = new LinkedHashMap<>();
 
         if (titulo == null || titulo.trim().isEmpty()) {
-            errores.put("titulo", "El título es obligatorio.");
+            errores.put(CAMPO_TITULO, "El título es obligatorio.");
         } else if (titulo.trim().length() > maxLongitud) {
-            errores.put("titulo",
+            errores.put(CAMPO_TITULO,
                 "El título no debe superar " + maxLongitud + " caracteres.");
         }
 
         if (categoria == null || categoria.trim().isEmpty()) {
-            errores.put("categoria", "La categoría es obligatoria.");
+            errores.put(CAMPO_CATEGORIA, "La categoría es obligatoria.");
         }
 
         if (!"Alta".equals(prioridad) && !"Media".equals(prioridad)
                 && !"Baja".equals(prioridad)) {
-            errores.put("prioridad", "Seleccione una prioridad válida.");
+            errores.put(CAMPO_PRIORIDAD, "Seleccione una prioridad válida.");
         }
 
         Date fechaLimite = parsearFecha(fechaStr);
@@ -55,9 +58,9 @@ public class GuardarComando implements Comando {
 
         if (!errores.isEmpty()) {
             req.setAttribute("errores",     errores);
-            req.setAttribute("titulo",      titulo);
-            req.setAttribute("categoria",   categoria);
-            req.setAttribute("prioridad",   prioridad);
+            req.setAttribute(CAMPO_TITULO,      titulo);
+            req.setAttribute(CAMPO_CATEGORIA,   categoria);
+            req.setAttribute(CAMPO_PRIORIDAD,   prioridad);
             req.setAttribute(CAMPO_FECHA,   fechaStr);
             return "/WEB-INF/views/formulario.jsp";
         }

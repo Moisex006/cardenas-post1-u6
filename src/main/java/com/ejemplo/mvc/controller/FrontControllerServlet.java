@@ -37,6 +37,7 @@ public class FrontControllerServlet extends HttpServlet {
         comandos.put("completar",  new CompletarComando(tareaService));
         comandos.put("login",      new LoginComando(authService));
         comandos.put("logout",     new LogoutComando());
+        comandos.put("idioma",     new IdiomaComando());
     }
 
     @Override

@@ -7,3 +7,8 @@ th { background: #065A82; color: white; text-align: left; }
 .completada { text-decoration: line-through; color: #808080; }
 form label { display: block; margin-bottom: 0.75rem; }
 form input[type="text"], form input[type="password"], form select { display: block; margin-top: 0.25rem; padding: 4px; min-width: 260px; }
+.cabecera { border-bottom: 1px solid #ccc; margin-bottom: 1rem; padding-bottom: 0.5rem; }
+.saludo { color: #21295C; font-weight: bold; }
+.alert-error { background: #FFEBEE; border: 1px solid #C62828; padding: 8px 12px; }
+.input-error { border-color: #C62828; background: #FFF5F5; }
+.campo-error { color: #C62828; font-size: 0.85rem; display: block; }

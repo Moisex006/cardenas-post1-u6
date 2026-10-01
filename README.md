@@ -35,7 +35,7 @@ cardenas-post1-u6/
     │           ├── CompletarComando.java
     │           └── LoginComando.java / LogoutComando.java / IdiomaComando.java
     ├── resources/
-    │   ├── messages.properties              ← inglés (por defecto)
+    │   ├── messages.properties              ← inglés 
     │   └── messages_es.properties           ← español
     └── webapp/
         ├── index.jsp

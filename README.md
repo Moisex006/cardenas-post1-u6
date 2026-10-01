@@ -1,8 +1,7 @@
 # Post-contenido — Unidad 6: JSP con MVC
 
 ## Descripción
-Repositorio del laboratorio de la Unidad 6 de Programación Web — Séptimo
-Semestre. Contiene un único proyecto Maven Web (`gestor-tareas-mvc`) que
+Repositorio del laboratorio de la Unidad 6 de Programación Web — Contiene un único proyecto Maven Web (`gestor-tareas-mvc`) que
 formaliza el patrón MVC con un Front Controller y el patrón Comando,
 extendido con autenticación por sesión con roles, validación por campo
 e internacionalización.
